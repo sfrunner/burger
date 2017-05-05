@@ -10,6 +10,7 @@ module.exports = function (app, path) {
                 var data = {
                     allBurgers: response
                 }
+                console.log(data);
                 res.render("index", data);
                 console.log("Activated");
             }

@@ -1,15 +1,15 @@
 {{#each allBurgers}}
    {{#unless devoured}}
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="jumbotron not-eaten">
                 {{burger_name}}
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <button type="button" class="devour-btn" id="{{id}}">Devour It!</button>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-5"></div>
     </div>
     {{else}}
     <div class="row">
