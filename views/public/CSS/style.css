@@ -9,19 +9,18 @@ body{
 }
 
 .devour-btn{
-    position:relative;
-    top: 50px;
     text-align:center;
 }
 
 .not-eaten {
-    clear: both;
-    float: left;
     text-align: center;
+    width:50%;
+    float:left;
 }
 
 .eaten{
     float:right;
     opacity: 0.8;
     text-align:center;
+    width:50%;
 }

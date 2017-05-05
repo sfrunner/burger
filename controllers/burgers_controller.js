@@ -10,7 +10,6 @@ module.exports = function (app, path) {
                 var data = {
                     allBurgers: response
                 }
-                console.log(data);
                 res.render("index", data);
                 console.log("Activated");
             }
@@ -18,7 +17,6 @@ module.exports = function (app, path) {
     });
 
     app.post("/index", function (req, res) {
-        console.log(req.body.name);
         orm.insertOne("burgers", req.body.name, false);
         res.redirect("/index");
     });

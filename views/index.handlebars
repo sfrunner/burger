@@ -2,25 +2,29 @@
    {{#unless devoured}}
     <div class="row">
         <div class="col-md-5">
-            <div class="jumbotron not-eaten">
-                {{burger_name}}
-            </div>
+            <ul class="list-group not-eaten">
+                <li class="list-group-item">{{burger_name}}</li>
+            </ul>
         </div>
         <div class="col-md-2">
-            <button type="button" class="devour-btn" id="{{id}}">Devour It!</button>
+            <span class="input-group-btn">
+                <button class="btn btn-default devour-btn" type="button" id="{{id}}">Devour It!</button>
+            </span>
         </div>
         <div class="col-md-5"></div>
     </div>
     {{else}}
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <button type="button" class="devour-btn" id="{{id}}">Devour It!</button>
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+            <span class="input-group-btn">
+                <button class="btn btn-default devour-btn" type="button" id="{{id}}">Devour It!</button>
+            </span>
         </div>
-        <div class="col-md-4">
-            <div class="jumbotron eaten">
-                {{burger_name}}
-            </div>
+        <div class="col-md-5">
+            <ul class="list-group eaten">
+                <li class="list-group-item">{{burger_name}}</li>
+            </ul>
         </div>
         </div>
 
