@@ -21,9 +21,15 @@ module.exports = function (app, path) {
         res.redirect("/index");
     });
 
-    app.get("/index/:id", function (req, res) {
+    app.get("/index/update/:id", function (req, res) {
         console.log(req.params.id);
         orm.updateOne("burgers", "devoured", true, "id", parseInt(req.params.id));
+        res.redirect("/index");
+    })
+
+    app.get("/index/delete/:id", function (req, res) {
+        console.log(req.params.id);
+        orm.deleteOne("burgers", parseInt(req.params.id));
         res.redirect("/index");
     })
 }

@@ -28,7 +28,17 @@ var orm = {
                 console.log("Product Updated");
             }
         });
-    } 
+    },
+
+    deleteOne: function (tableName, queryValue) {
+        var queryString = "DELETE FROM ?? WHERE ?";
+        connection.query(queryString, [tableName, { id: queryValue }], function (err, data) {
+            if (err) throw err;
+            else if (!err) {
+                console.log("Product Deleted");
+            }
+        });
+    },
 }
 
 module.exports = orm;
