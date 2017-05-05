@@ -2,9 +2,13 @@ var connection = require("./connection");
 var orm = {
     selectAll: function(tableName, callback){
         var queryString = "SELECT * FROM ??";
-        connection.query(queryString, tableName, function(err,data){
-            if (err) throw err;
-            console.log(data);
+        connection.query(queryString, tableName, function(err, data){
+            if (err) {
+                callback(err, null);
+            }
+            else {
+                callback(null, data);
+            }
         });
     },
     insertOne: function(tableName, burger_name, devoured){
@@ -17,8 +21,8 @@ var orm = {
         });
     },
     updateOne: function(tableName, colNameToUpdate, valUpdate, colQuery, queryValue){
-        var queryString = "UPDATE ?? SET ?? WHERE ?? = ?";
-        connection.query(queryString,[tableName,{colNameToUpdate: valUpdate },colQuery, queryValue], function(err,data){
+        var queryString = "UPDATE ?? SET ? WHERE ?";
+        connection.query(queryString, [tableName, { devoured: valUpdate }, { id: queryValue }], function(err,data){
             if(err) throw err;
             else if (!err){
                 console.log("Product Updated");

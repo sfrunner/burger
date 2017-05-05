@@ -7,7 +7,14 @@ $(document).ready(function () {
         };
         console.log(burgerData);
         $.post("/index", burgerData).done(function (data) {
-            console.log(data);
+            allBurgers = data;
         });
     });
+
+    $(".devour-btn").on("click", function (event) {
+        var burgerID = event.target.id;
+        $.get("/index/" + burgerID).done(function (data) {
+
+        })
+    })
 });
