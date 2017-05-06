@@ -7,7 +7,7 @@ $(document).ready(function () {
             name: $("#burger-text").val().trim()
         };
         console.log(burgerData);
-        $.post("/index", burgerData).done(function (data) {
+        $.post("/", burgerData).done(function (data) {
             getcall();
         });
         
@@ -28,7 +28,7 @@ $(document).ready(function () {
     });
 
     function getcall() {
-        $.get("/index/").done(function (data) {
+        $.get("/").done(function (data) {
             console.log(data);
             $("body").html(data);
         });
