@@ -16,17 +16,16 @@ module.exports = function (app, path) {
     });
 
     app.post("/", function (req, res) {
-        orm.insertOne("burgers", req.body.name, false);
+        orm.insertOne("burgers", req.body.name);
         res.redirect("/");
     });
 
     app.put("/update/:id", function (req, res) {
-        orm.updateOne("burgers", "devoured", true, "id", parseInt(req.params.id));
+        orm.updateOne("burgers", true, parseInt(req.params.id));
         res.redirect("/");
-    })
+    });
 
     app.delete("/delete/:id", function (req, res) {
-        console.log(req.params.id);
         orm.deleteOne("burgers", parseInt(req.params.id));
         res.redirect("/");
     })

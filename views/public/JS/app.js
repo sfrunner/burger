@@ -8,23 +8,8 @@ $(document).ready(function () {
         };
         console.log(burgerData);
         $.post("/", burgerData).done(function (data) {
-            getcall();
         });
         
-    });
-
-    $(".devour-btn").on("click", function (event) {
-        //var burgerID = event.target.id;
-        //$.put("/index/update/" + burgerID).done(function (data) {
-            getcall(); 
-        //});
-    });
-
-    $(".eaten").on("click", function (event) {
-        //var burgerID = event.target.id;
-        //$.post("/index/delete/" + burgerID.replace("burger-", "")).done(function (data) {
-        getcall();
-        //});
     });
 
     function getcall() {

@@ -1,26 +1,25 @@
 var connection = require("./connection");
 var orm = {
-    selectAll: function(tableName, callback){
+    selectAll: function(tableName,callback){
         var queryString = "SELECT * FROM ??";
-        connection.query(queryString, tableName, function(err, data){
+        connection.query(queryString, tableName, function (err, data) {
             if (err) {
                 callback(err, null);
-            }
-            else {
-                callback(null, data);
-            }
+            } else
+                callback(null, data)
         });
     },
-    insertOne: function(tableName, burger_name, devoured){
-        var queryString = "INSERT INTO ??(burger_name,devoured) VALUE (?,?)";
-        connection.query(queryString,[tableName, burger_name, devoured], function(err,data){
+    insertOne: function(tableName, burger_name){
+        var queryString = "INSERT INTO ??(burger_name) VALUE (?,?)";
+        connection.query(queryString,[tableName, burger_name], function(err,data){
             if (err) throw err;
             else if (!err){
                 console.log("Product Inserted");
             }
+     
         });
     },
-    updateOne: function(tableName, colNameToUpdate, valUpdate, colQuery, queryValue){
+    updateOne: function(tableName, valUpdate, queryValue){
         var queryString = "UPDATE ?? SET ? WHERE ?";
         connection.query(queryString, [tableName, { devoured: valUpdate }, { id: queryValue }], function(err,data){
             if(err) throw err;
