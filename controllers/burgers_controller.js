@@ -11,16 +11,13 @@ module.exports = function (app, path) {
                     allBurgers: response
                 }
                 res.render("index", data);
-                console.log("Activated-get");
-            }
-                
+            }  
         });
     });
 
     app.post("/", function (req, res) {
         orm.insertOne("burgers", req.body.name, false);
         res.redirect("/");
-        console.log("activated-post");
     });
 
     app.put("/update/:id", function (req, res) {
