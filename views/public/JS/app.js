@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
 
-    $("#submit-btn").on("click", function (event) {
+    $("#submit-btn").one("click", function (event) {
         var burgerData = {
             name: $("#burger-text").val().trim()
         };
