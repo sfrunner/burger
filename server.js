@@ -13,14 +13,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-app.use(function noCacheForRoot(req, res, next) {
-    if (req.url === '/') {
-      res.header("Cache-Control", "no-cache, no-store, must-revalidate");
-      res.header("Pragma", "no-cache");
-      res.header("Expires", 0);
-    }
-    next();
-});
 require("./controllers/burgers_controller.js")(app,path);
 
 app.listen(PORT);

@@ -5,18 +5,21 @@ var orm = {
         connection.query(queryString, tableName, function (err, data) {
             if (err) {
                 callback(err, null);
-            } else
-                callback(null, data)
+            }
+            else {
+                callback(null, data);
+            }
         });
     },
-    insertOne: function(tableName, burger_name){
+    insertOne: function(tableName, burger_name, callback){
         var queryString = "INSERT INTO ??(burger_name) VALUE (?)";
         connection.query(queryString,[tableName, burger_name], function(err,data){
-            if (err) throw err;
-            else if (!err){
-                console.log("Product Inserted");
+            if (err) {
+                callback(err, null);
             }
-     
+            else {
+                callback(null, "Product Inserted");
+            }
         });
     },
     updateOne: function(tableName, valUpdate, queryValue){
@@ -28,7 +31,6 @@ var orm = {
             }
         });
     },
-
     deleteOne: function (tableName, queryValue) {
         var queryString = "DELETE FROM ?? WHERE ?";
         connection.query(queryString, [tableName, { id: queryValue }], function (err, data) {

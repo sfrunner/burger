@@ -6,7 +6,6 @@ $(document).ready(function () {
         var burgerData = {
             name: $("#burger-text").val().trim()
         };
-        console.log(burgerData);
         $.post("/", burgerData).done(function (data) {
         });
         

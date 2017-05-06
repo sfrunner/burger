@@ -16,8 +16,10 @@ module.exports = function (app, path) {
     });
 
     app.post("/", function (req, res) {
-        orm.insertOne("burgers", req.body.name);
-        res.redirect("/");
+        orm.insertOne("burgers", req.body.name, function (err, response) {
+            console.log(response);
+            res.redirect("/");
+        });
     });
 
     app.put("/update/:id", function (req, res) {
