@@ -13,6 +13,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-require("./controllers/burgers_controller.js")(app,path);
+require("./controllers/burgers_controller.js")(app, path);
 
 app.listen(PORT);
