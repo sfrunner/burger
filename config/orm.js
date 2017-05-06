@@ -10,7 +10,7 @@ var orm = {
         });
     },
     insertOne: function(tableName, burger_name){
-        var queryString = "INSERT INTO ??(burger_name) VALUE (?,?)";
+        var queryString = "INSERT INTO ??(burger_name) VALUE (?)";
         connection.query(queryString,[tableName, burger_name], function(err,data){
             if (err) throw err;
             else if (!err){
