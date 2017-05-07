@@ -2,16 +2,17 @@
 $(document).ready(function () {
 
 
-    $("#submit-btn").one("click", function (event) {
+    $("#submit-btn").on("click", function (event) {
         var burgerData = {
             name: $("#burger-text").val().trim()
         };
         $.post("/", burgerData).done(function (data) {
+            getCall();
         });
         
     });
 
-    function getcall() {
+    function getCall() {
         $.get("/").done(function (data) {
             var HTML = $.parseHTML(data,document,true);
             var bodyHTML = HTML[15].innerHTML
