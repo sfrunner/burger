@@ -1,6 +1,4 @@
-var express = require("express");
-var Burger = require("../models/burger.js");
-var router = express.Router();
+﻿var router = require("../controllers/burgers_controller.js")(Burger);
 router.get("/", function (req, res) {
     Burger.selectAll("burgers", function (err, response) {
         if (err) throw err;
@@ -29,8 +27,5 @@ router.delete("/delete/:id", function (req, res) {
     Burger.deleteOne("burgers", parseInt(req.params.id));
     res.redirect("/");
 });
-module.exports = router;
 
-
-
-
+exports.module = router;
