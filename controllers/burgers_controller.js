@@ -17,6 +17,9 @@ router.post("/", function (req, res) {
     Burger.insertOne("burgers", req.body.name, function (err, response) {
         console.log(response);
         res.redirect("/");
+
+        // this is what the redirect response could look like
+        // res.send({ redirect: '/' })
     });
 });
 
